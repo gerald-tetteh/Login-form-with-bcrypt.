@@ -1,0 +1,34 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .message {
+      background-color: orangered;
+      margin: 0 20%;
+      z-index: 100;
+    }
+  </style>
+</head>
+
+<body>
+  <% if (mustLogin && mustLogin.length > 0) { %>
+  <div class="message">
+    <p>You need to login First</p>
+  </div>
+  <% } %>
+  <form action="/login" method="post">
+    <input type="text" name="data[username]" placeholder="username">
+    <input type="password" name="data[password]" placeholder="password">
+    <input type="submit" value="submit">
+  </form>
+  <% if (wrongCredentials && wrongCredentials.length > 0) { %>
+  <div class="message">
+    <p>Wrong password or username</p>
+  </div>
+  <% } %>
+</body>
+
+</html>
